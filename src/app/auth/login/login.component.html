@@ -1,0 +1,223 @@
+<section class="bg-white {-- h-screen --}">
+  <div class="mx-auto flex lg:justify-center h-full flex-col lg:flex-row">
+    <div
+      style="
+        background-image: url('../../../assets/banner.jpeg');
+        background-repeat: no-repeat;
+        background-size: contain;
+      "
+      class="
+        w-full
+        lg:w-1/2
+        px-2
+        py-20
+        sm:py-40 sm:px-12
+        flex flex-col
+        justify-center
+        items-center
+        bg-indigo-600
+        relative
+      "
+    >
+      <div class="flex relative z-30 flex-col justify-center px-4 md:pr-12">
+        <!-- <div class="px-2 flex flex-col items-center justify-center">
+          <img
+            class="w-32 h-32"
+            id="logo"
+            enable-background="new 0 0 300 300"
+            height="44"
+            viewBox="0 0 300 300"
+            width="43"
+            src="#"
+            alt="Logo"
+          />
+        </div>
+        <h3
+          class="text-4xl pt-8 leading-tight text-white text-center font-bold"
+        >
+          GEC Virtual Church
+        </h3> -->
+      </div>
+    </div>
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="submitLogin()"
+      id="login"
+      class="w-full lg:w-1/2 flex justify-center bg-white dark:bg-gray-900"
+    >
+      <div
+        class="
+          w-full
+          sm:w-4/6
+          md:w-3/6
+          lg:w-2/3
+          text-gray-800
+          dark:text-gray-100
+          flex flex-col
+          justify-center
+          px-2
+          sm:px-0
+          py-16
+        "
+      >
+        <div class="px-2 sm:px-6">
+          <h3
+            class="
+              text-4xl
+              pt-8
+              leading-tight
+              text-indigo-700 text-center
+              font-bold
+            "
+          >
+            GEC Virtual Church
+          </h3>
+          <h3
+            class="
+              text-2xl
+              sm:text-3xl
+              md:text-2xl
+              font-bold
+              leading-tight
+              text-center
+            "
+          >
+            Login To Your Account
+          </h3>
+          <div
+            *ngIf="error"
+            class="text-red-500 ms:text-left text-center mt-10"
+          >
+            {{ message }}
+          </div>
+        </div>
+        <div class="mt-8 w-full px-2 sm:px-6">
+          <div class="flex flex-col mt-8">
+            <label for="username" class="text-lg font-semibold leading-tight"
+              >GEC User ID</label
+            >
+            <input
+              id="username"
+              required
+              aria-required="true"
+              name="username"
+              formControlName="username"
+              class="
+                h-10
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+              type="text"
+            />
+            <div
+              class="text-red-600"
+              *ngIf="
+                control('username')?.errors?.required &&
+                control('username')?.touched
+              "
+            >
+              User ID is required
+            </div>
+            <div
+              class="text-red-600"
+              *ngIf="
+                control('username')?.errors?.minlength &&
+                control('username')?.touched
+              "
+            >
+              User ID too short
+            </div>
+          </div>
+          <div class="flex flex-col mt-5">
+            <label
+              for="selectedMeeting"
+              class="text-lg font-semibold fleading-tight"
+              >Select Meeting</label
+            >
+            <select
+              id="selectedMeeting"
+              required
+              aria-required="true"
+              name="selectedMeeting"
+              formControlName="selectedMeeting"
+              class="
+                h-10
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+            >
+              <option
+                *ngFor="let meeting of meetings"
+                value="{{ meeting.meetingID }}"
+              >
+                {{ meeting.title }} with {{ meeting.hostBy }}
+              </option>
+            </select>
+            <div
+              class="text-red-600"
+              *ngIf="
+                control('selectedMeeting')?.errors?.required &&
+                control('selectedMeeting')?.touched
+              "
+            >
+              Select Meeting ID is required
+            </div>
+          </div>
+        </div>
+        <div class="pt-6 w-full flex justify-between px-2 sm:px-6"></div>
+        <div class="px-2 sm:px-6">
+          <button
+            type="submit"
+            class="
+              focus:outline-none
+              w-full
+              sm:w-auto
+              bg-indigo-700
+              transition
+              duration-150
+              ease-in-out
+              hover:bg-indigo-600
+              rounded
+              text-white
+              px-8
+              py-3
+              text-sm
+              mt-6
+            "
+          >
+            Login
+          </button>
+          <p class="mt-6 text-xs">
+            Don’t Have Gec User ID?
+            <a
+              class="underline text-indigo-600"
+              [routerLink]="['/auth/sign-up']"
+              routerLinkActive="router-link-active"
+              >Sign Up</a
+            >
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

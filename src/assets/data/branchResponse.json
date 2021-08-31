@@ -1,0 +1,34 @@
+{
+  "statusCode": 200,
+  "statusDescription": "success",
+  "data": [
+    {
+      "id": "1",
+      "branch_code": "VIS",
+      "branch_name": "Non Gec Branch",
+      "date_created": "2021-08-28 16:14:52",
+      "date_updated": "2021-08-28 16:14:52"
+    },
+    {
+      "id": "2",
+      "branch_code": "GEC",
+      "branch_name": "GEC MINISTRY",
+      "date_created": "2021-08-28 16:14:52",
+      "date_updated": "2021-08-28 16:14:52"
+    },
+    {
+      "id": "3",
+      "branch_code": "VIS1",
+      "branch_name": "Non Gec Branch 1",
+      "date_created": "2021-08-28 16:14:57",
+      "date_updated": "2021-08-28 16:14:57"
+    },
+    {
+      "id": "4",
+      "branch_code": "GEC1",
+      "branch_name": "GEC MINISTRY 1",
+      "date_created": "2021-08-28 16:14:57",
+      "date_updated": "2021-08-28 16:14:57"
+    }
+  ]
+}

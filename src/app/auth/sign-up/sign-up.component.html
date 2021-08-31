@@ -1,0 +1,447 @@
+<section class="bg-white {-- h-screen --}">
+  <form
+    id="login"
+    class="lg:p-10 sm:my-24"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div
+      class="
+        px-10
+        sm:px-6 sm:pt-10
+        flex
+        sm:flex-col
+        justify-center justify-items-center
+        align-middle
+        items-center
+      "
+    >
+      <h3
+        class="
+          text-indigo-700 text-2xl
+          sm:text-3xl
+          md:text-2xl
+          font-bold
+          leading-tight
+          text-left
+        "
+      >
+        Sign Up For Your Account
+      </h3>
+
+      <div *ngIf="error" class="mt-8 text-red-600">
+        {{ message }}
+      </div>
+    </div>
+
+    <div class="mx-auto flex lg:justify-center h-full flex-col lg:flex-row">
+      <div
+        class="w-full lg:w-1/2 flex justify-center bg-white dark:bg-gray-900"
+      >
+        <div
+          class="
+            w-full
+            sm:w-4/6
+            md:w-3/6
+            lg:w-2/3
+            text-gray-800
+            dark:text-gray-100
+            flex flex-col
+            justify-center
+            px-2
+            sm:px-0
+            py-16
+          "
+        >
+          <div class="mt-8 w-full px-2 sm:px-6">
+            <div class="flex flex-col mt-5">
+              <label for="title" class="text-lg font-semibold fleading-tight"
+                >Title
+                <span class="text-red-500 font-bold">*</span>
+              </label>
+              <select
+                id="title"
+                required
+                aria-required="true"
+                name="title"
+                formControlName="title"
+                class="
+                  h-10
+                  px-2
+                  w-full
+                  rounded
+                  mt-2
+                  text-gray-600
+                  focus:outline-none focus:border focus:border-indigo-700
+                  dark:focus:border-indigo-700
+                  dark:border-gray-700
+                  dark:bg-gray-800
+                  dark:text-gray-400
+                  border-gray-300 border
+                  shadow
+                "
+              >
+                <option select>Pastor</option>
+                <option>Deacon</option>
+                <option>Deaconess</option>
+                <option>Reverand</option>
+                <option>Brother</option>
+                <option>Sister</option>
+                <option>Sir</option>
+                <option>Madam</option>
+                <option>Mr</option>
+                <option>Mrs</option>
+                <option>Ms</option>
+                <option>Doctor</option>
+                <option>Professor</option>
+                <option>H.E</option>
+              </select>
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('title')?.errors?.required &&
+                  control('title')?.touched
+                "
+              >
+                Title is required
+              </div>
+            </div>
+
+            <div class="flex flex-col mt-8">
+              <label for="fullName" class="text-lg font-semibold leading-tight"
+                >Full Name
+                <span class="text-red-500 font-bold">*</span>
+              </label>
+              <input
+                id="fullName"
+                formControlName="fullName"
+                required
+                aria-required="true"
+                class="
+                  h-10
+                  px-2
+                  w-full
+                  rounded
+                  mt-2
+                  text-gray-600
+                  focus:outline-none focus:border focus:border-indigo-700
+                  dark:focus:border-indigo-700
+                  dark:border-gray-700
+                  dark:bg-gray-800
+                  dark:text-gray-400
+                  border-gray-300 border
+                  shadow
+                "
+                type="text"
+              />
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('fullName')?.errors?.required &&
+                  control('fullName')?.touched
+                "
+              >
+                Full Name is required
+              </div>
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('fullName')?.errors?.minlength &&
+                  control('fullName')?.touched
+                "
+              >
+                Character too short
+              </div>
+            </div>
+            <div class="flex flex-col mt-8">
+              <label for="userEmail" class="text-lg font-semibold leading-tight"
+                >Email
+                <span class="text-red-500 font-bold">*</span>
+              </label>
+              <input
+                id="userEmail"
+                required
+                formControlName="userEmail"
+                aria-required="true"
+                class="
+                  h-10
+                  px-2
+                  w-full
+                  rounded
+                  mt-2
+                  text-gray-600
+                  focus:outline-none focus:border focus:border-indigo-700
+                  dark:focus:border-indigo-700
+                  dark:border-gray-700
+                  dark:bg-gray-800
+                  dark:text-gray-400
+                  border-gray-300 border
+                  shadow
+                "
+                type="email"
+              />
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('title')?.errors?.required &&
+                  control('title')?.touched
+                "
+              >
+                Email is Required
+              </div>
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('title')?.errors?.email && control('title')?.touched
+                "
+              >
+                Invalid Email
+              </div>
+            </div>
+
+            <div class="flex flex-col mt-8">
+              <label
+                for="phoneNumber"
+                class="text-lg font-semibold leading-tight"
+                >Number
+                <span class="text-red-500 font-bold">*</span>
+              </label>
+              <input
+                id="phoneNumber"
+                placeholder="0976303704"
+                formControlName="phoneNumber"
+                required
+                aria-required="true"
+                name="phoneNumber"
+                class="
+                  h-10
+                  px-2
+                  w-full
+                  rounded
+                  mt-2
+                  text-gray-600
+                  focus:outline-none focus:border focus:border-indigo-700
+                  dark:focus:border-indigo-700
+                  dark:border-gray-700
+                  dark:bg-gray-800
+                  dark:text-gray-400
+                  border-gray-300 border
+                  shadow
+                "
+                type="number"
+              />
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('phoneNumber')?.errors?.required &&
+                  control('phoneNumber')?.touched
+                "
+              >
+                Phone Number is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w-full lg:w-1/2 flex justify-center bg-white dark:bg-gray-900"
+      >
+        <div
+          class="
+            w-full
+            sm:w-4/6
+            md:w-3/6
+            lg:w-2/3
+            text-gray-800
+            dark:text-gray-100
+            flex flex-col
+            justify-center
+            px-2
+            sm:px-0
+            py-16
+          "
+        >
+          <div class="lg:mt-8 w-full px-2 sm:px-6">
+            <div class="flex flex-col lg:mt-8">
+              <label for="address" class="text-lg font-semibold leading-tight"
+                >Address
+                <span class="text-red-500 font-bold">*</span>
+              </label>
+              <textarea
+                id="address"
+                aria-required="true"
+                name="address"
+                formControlName="address"
+                class="
+                  h-40
+                  px-2
+                  w-full
+                  rounded
+                  mt-2
+                  text-gray-600
+                  focus:outline-none focus:border focus:border-indigo-700
+                  dark:focus:border-indigo-700
+                  dark:border-gray-700
+                  dark:bg-gray-800
+                  dark:text-gray-400
+                  border-gray-300 border
+                  shadow
+                "
+                type="text"
+              ></textarea>
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('address')?.errors?.required &&
+                  control('address')?.touched
+                "
+              >
+                Address is required
+              </div>
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('address')?.errors?.minlength &&
+                  control('address')?.touched
+                "
+              >
+                Address too Short
+              </div>
+            </div>
+
+            <div class="flex flex-col mt-5">
+              <label for="category" class="text-lg font-semibold fleading-tight"
+                >Tell Us who you are
+                <span class="text-red-500 font-bold">*</span>
+              </label>
+              <select
+                id="category"
+                required
+                (change)="onChange($event)"
+                aria-required="true"
+                name="category"
+                formControlName="category"
+                class="
+                  h-10
+                  px-2
+                  w-full
+                  rounded
+                  mt-2
+                  text-gray-600
+                  focus:outline-none focus:border focus:border-indigo-700
+                  dark:focus:border-indigo-700
+                  dark:border-gray-700
+                  dark:bg-gray-800
+                  dark:text-gray-400
+                  border-gray-300 border
+                  shadow
+                "
+              >
+                <option value="GEC">I'm from GEC</option>
+                <option value="FT">I'm a First Timer</option>
+                <option value="V">I'm just Visiting</option>
+              </select>
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('category')?.errors?.required &&
+                  control('category')?.touched
+                "
+              >
+                Category is required
+              </div>
+            </div>
+
+            <div *ngIf="show" class="flex flex-col mt-5">
+              <label for="branch" class="text-lg font-semibold fleading-tight"
+                >Branch</label
+              >
+              <select
+                id="branch"
+                required
+                (change)="selectBranch($event)"
+                aria-required="true"
+                name="branch"
+                type="branch"
+                class="
+                  h-10
+                  px-2
+                  w-full
+                  rounded
+                  mt-2
+                  text-gray-600
+                  focus:outline-none focus:border focus:border-indigo-700
+                  dark:focus:border-indigo-700
+                  dark:border-gray-700
+                  dark:bg-gray-800
+                  dark:text-gray-400
+                  border-gray-300 border
+                  shadow
+                "
+              >
+                <option value="branch.branchID" *ngFor="let branch of branches">
+                  {{ branch.branchName }}
+                </option>
+              </select>
+              <div
+                class="text-red-600"
+                *ngIf="
+                  control('branch')?.errors?.required &&
+                  control('branch')?.touched
+                "
+              >
+                Address is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="
+        px-2
+        sm:px-6
+        flex
+        lg:flex-row
+        sm:flex-col
+        justify-center
+        items-center
+        gap-10
+      "
+    >
+      <button
+        [disabled]="registerForm.invalid"
+        type="submit"
+        class="
+          focus:outline-none
+          w-full
+          sm:w-auto
+          bg-indigo-700
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-indigo-600
+          rounded
+          text-white
+          px-8
+          py-3
+          text-sm
+          mt-6
+        "
+      >
+        Sign Up
+      </button>
+      <p class="mt-6 text-xs">
+        I Do Have An Gec User ID
+        <a
+          class="underline text-indigo-600"
+          [routerLink]="['/auth/login']"
+          routerlinkactive="router-link-active"
+          >Login</a
+        >
+      </p>
+    </div>
+  </form>
+  <div class="mb-10"></div>
+</section>

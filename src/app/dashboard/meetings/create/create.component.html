@@ -1,0 +1,376 @@
+<section class="bg-white {-- h-screen --}">
+  <form id="login" class="lg:p-10">
+    <div class="px-10 sm:px-6">
+      <h3
+        class="
+          text-2xl
+          sm:text-3xl
+          md:text-2xl
+          font-bold
+          leading-tight
+          text-left
+        "
+      >
+        Set up a Meeting
+      </h3>
+    </div>
+
+    <div class="mx-auto flex lg:justify-center h-full flex-col lg:flex-row">
+      <div
+        class="w-full lg:w-1/2 flex justify-center bg-white dark:bg-gray-900"
+      >
+        <div
+          class="
+            w-full
+            sm:w-4/6
+            md:w-3/6
+            lg:w-2/3
+            text-gray-800
+            dark:text-gray-100
+            flex flex-col
+            justify-center
+            px-2
+            sm:px-0
+            py-16
+          "
+        >
+          <div class="flex flex-col mt-8">
+            <label for="meetingName" class="text-lg font-semibold leading-tight"
+              >Meeting Name
+              <span class="text-red-500 font-bold">*</span>
+            </label>
+            <input
+              id="meetingName"
+              required
+              aria-required="true"
+              name="meetingName"
+              class="
+                h-10
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+              type="text"
+            />
+          </div>
+
+          <div class="flex flex-col mt-8">
+            <label
+              for="meetingDescription"
+              class="text-lg font-semibold leading-tight"
+              >Short Description
+              <span class="text-red-500 font-bold">*</span>
+            </label>
+            <textarea
+              id="meetingDescription"
+              aria-required="true"
+              name="meetingDescription"
+              class="
+                h-40
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+            ></textarea>
+          </div>
+
+          <div class="flex flex-col mt-5">
+            <label for="rolos" class="text-lg font-semibold fleading-tight">
+              Who can Attend
+              <span class="text-red-500 font-bold">*</span>
+            </label>
+            <select
+              multiple
+              id="rolos"
+              required
+              aria-required="true"
+              name="rolos"
+              class="
+                h-40
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+            >
+              <option selected value="ALL">
+                All Users ( Internal/External Member)
+              </option>
+              <option value="USER">All GEC Member (Internal)</option>
+              <option value="PASTOR">GEC Pastors</option>
+              <option value="NON_PASTOR">Non GEC Pastor</option>
+              <option value="CELL_LEADER">Cell Leaders</option>
+              <option value="FS">Foundation School</option>
+              <option value="DEACON_DEACONESS">Deacons / Deaconess</option>
+              <option value="SERVICE_UNIT_LEADER">Service Unit Leaders</option>
+              <option value="SERVICE_UNIT">Service Unit Leaders</option>
+              <option value="COUNSELLOR">Counsellors / Teachers</option>
+              <option value="PROFESSIONAL">Professional</option>
+              <option value="SINGLE">Singles</option>
+              <option value="COUPLE">Couples</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col mt-8">
+        <label for="host" class="text-lg font-semibold leading-tight"
+          >Who is the Host
+          <span class="text-red-500 font-bold">*</span>
+        </label>
+        <input
+          id="host"
+          required
+          placeholder="Pastor Choolwe"
+          aria-required="true"
+          name="host"
+          class="
+            h-10
+            px-2
+            w-full
+            rounded
+            mt-2
+            text-gray-600
+            focus:outline-none focus:border focus:border-indigo-700
+            dark:focus:border-indigo-700
+            dark:border-gray-700
+            dark:bg-gray-800
+            dark:text-gray-400
+            border-gray-300 border
+            shadow
+          "
+          type="text"
+        />
+      </div>
+
+      <div
+        class="w-full lg:w-1/2 flex justify-center bg-white dark:bg-gray-900"
+      >
+        <div
+          class="
+            w-full
+            sm:w-4/6
+            md:w-3/6
+            lg:w-2/3
+            text-gray-800
+            dark:text-gray-100
+            flex flex-col
+            justify-center
+            px-2
+            sm:px-0
+            py-16
+          "
+        >
+          <div class="flex flex-col mt-8">
+            <label for="date" class="text-lg font-semibold leading-tight"
+              >When will the meeting hold
+            </label>
+            <input
+              id="date"
+              aria-required="true"
+              name="date"
+              class="
+                h-10
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+              type="date"
+            />
+          </div>
+
+          <!-- <div class="flex flex-col mt-5">
+              <label for="category" class="text-lg font-semibold fleading-tight"
+                >Tell Us who you are
+                <span class="text-red-500 font-bold">*</span>
+              </label>
+              <select
+                id="category"
+                required
+                aria-required="true"
+                name="category"
+                class="
+                  h-10
+                  px-2
+                  w-full
+                  rounded
+                  mt-2
+                  text-gray-600
+                  focus:outline-none focus:border focus:border-indigo-700
+                  dark:focus:border-indigo-700
+                  dark:border-gray-700
+                  dark:bg-gray-800
+                  dark:text-gray-400
+                  border-gray-300 border
+                  shadow
+                "
+              >
+                <option selected>Tell Us who you are</option>
+                <option value="GEC">I'm from GEC</option>
+                <option value="FT">I'm a First Timer</option>
+                <option value="V">I'm just Visiting</option>
+              </select>
+            </div> -->
+
+          <div class="flex flex-col mt-5">
+            <label for="public" class="text-lg font-semibold fleading-tight"
+              >Save or Publish</label
+            >
+            <select
+              id="public"
+              required
+              aria-required="true"
+              name="public"
+              class="
+                h-10
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+            >
+              <option value="1">Publish</option>
+              <option select value="0">Save but dont Publish</option>
+            </select>
+          </div>
+
+          <div class="flex flex-col mt-8">
+            <label
+              for="embedVideoCode"
+              class="text-lg font-semibold leading-tight"
+              >Embedd Video Code
+              <span class="text-red-500 font-bold">*</span>
+            </label>
+            <textarea
+              id="embedVideoCode"
+              aria-required="true"
+              name="embedVideoCode"
+              class="
+                h-40
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+            ></textarea>
+          </div>
+
+          <div class="flex flex-col mt-8">
+            <label for="host" class="text-lg font-semibold leading-tight"
+              >Chat Feature Code
+            </label>
+            <input
+              id="host"
+              required
+              placeholder="Pastor Choolwe"
+              aria-required="true"
+              name="host"
+              class="
+                h-10
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="
+        px-2
+        sm:px-6
+        flex
+        lg:flex-row
+        sm:flex-col
+        justify-center
+        items-center
+        gap-10
+      "
+    >
+      <button
+        type="submit"
+        class="
+          focus:outline-none
+          w-full
+          sm:w-auto
+          bg-indigo-700
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-indigo-600
+          rounded
+          text-white
+          px-8
+          py-3
+          text-sm
+          mt-6
+        "
+      >
+        Add Meeting
+      </button>
+    </div>
+  </form>
+</section>
