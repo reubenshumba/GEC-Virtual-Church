@@ -71,7 +71,9 @@ export class CreateComponent implements OnInit {
             );
             console.log(JSON.stringify(this.meetings));
           }
+
           this.error = false;
+          this.router.navigate(['index']);
         },
         (error) => {
           console.error(error);

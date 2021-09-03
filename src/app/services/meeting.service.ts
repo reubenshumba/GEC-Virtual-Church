@@ -20,8 +20,8 @@ export class MeetingService {
     );
   }
 
-  getMeeting(id: number): Observable<any> {
-    return this.httpClient.get<any>(
+  getMeeting(id: number): Observable<MeetingResponse> {
+    return this.httpClient.get<MeetingResponse>(
       `${BackendBaseService.baseURL}/meeting/` + id
     );
   }

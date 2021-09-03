@@ -42,6 +42,11 @@ export class LoginComponent implements OnInit {
       ]),
       selectedMeeting: formBuilder.control('', [Validators.required]),
     });
+
+    if (user != localStorage.user) {
+      var user = JSON.parse(localStorage.user);
+      this.loginForm.patchValue({ username: user.username });
+    }
   }
 
   ngOnInit(): void {

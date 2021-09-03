@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
+import { LoginComponent } from './auth/login/login.component';
 import { NotFoundComponent } from './component/not-found.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 
@@ -17,10 +18,11 @@ const routes: Routes = [
         (module) => DashboardModule
       ),
   },
+  { path: 'auth/login', component: LoginComponent },
   { path: '404', component: NotFoundComponent },
   {
     path: '',
-    redirectTo: '/auth',
+    redirectTo: '/auth/login',
     pathMatch: 'full',
   },
 
