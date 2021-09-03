@@ -8,6 +8,7 @@ import { EditComponent } from './meetings/edit/edit.component';
 import { CreateComponent } from './meetings/create/create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
+import { SafePipe } from '../pipes/safePipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DashboardComponent } from './dashboard.component';
     EditComponent,
     CreateComponent,
     DashboardComponent,
+    SafePipe,
   ],
   imports: [
     CommonModule,

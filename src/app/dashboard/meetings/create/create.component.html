@@ -1,5 +1,10 @@
 <section class="bg-white {-- h-screen --}">
-  <form id="login" class="lg:p-10">
+  <form
+    id="login"
+    class="lg:p-10"
+    [formGroup]="meetingForm"
+    (ngSubmit)="create()"
+  >
     <div class="px-10 sm:px-6">
       <h3
         class="
@@ -35,15 +40,16 @@
           "
         >
           <div class="flex flex-col mt-8">
-            <label for="meetingName" class="text-lg font-semibold leading-tight"
-              >Meeting Name
+            <label for="title" class="text-lg font-semibold leading-tight"
+              >Meeting Title
               <span class="text-red-500 font-bold">*</span>
             </label>
             <input
-              id="meetingName"
+              id="title"
               required
               aria-required="true"
-              name="meetingName"
+              name="title"
+              formControlName="title"
               class="
                 h-10
                 px-2
@@ -64,16 +70,15 @@
           </div>
 
           <div class="flex flex-col mt-8">
-            <label
-              for="meetingDescription"
-              class="text-lg font-semibold leading-tight"
+            <label for="description" class="text-lg font-semibold leading-tight"
               >Short Description
               <span class="text-red-500 font-bold">*</span>
             </label>
             <textarea
-              id="meetingDescription"
+              id="description"
               aria-required="true"
-              name="meetingDescription"
+              name="description"
+              formControlName="description"
               class="
                 h-40
                 px-2
@@ -98,11 +103,12 @@
               <span class="text-red-500 font-bold">*</span>
             </label>
             <select
+              formControlName="meetingType"
               multiple
-              id="rolos"
+              id="meetingType"
               required
               aria-required="true"
-              name="rolos"
+              name="meetingType"
               class="
                 h-40
                 px-2
@@ -139,36 +145,6 @@
         </div>
       </div>
 
-      <div class="flex flex-col mt-8">
-        <label for="host" class="text-lg font-semibold leading-tight"
-          >Who is the Host
-          <span class="text-red-500 font-bold">*</span>
-        </label>
-        <input
-          id="host"
-          required
-          placeholder="Pastor Choolwe"
-          aria-required="true"
-          name="host"
-          class="
-            h-10
-            px-2
-            w-full
-            rounded
-            mt-2
-            text-gray-600
-            focus:outline-none focus:border focus:border-indigo-700
-            dark:focus:border-indigo-700
-            dark:border-gray-700
-            dark:bg-gray-800
-            dark:text-gray-400
-            border-gray-300 border
-            shadow
-          "
-          type="text"
-        />
-      </div>
-
       <div
         class="w-full lg:w-1/2 flex justify-center bg-white dark:bg-gray-900"
       >
@@ -184,17 +160,49 @@
             justify-center
             px-2
             sm:px-0
-            py-16
+            py-2
           "
         >
           <div class="flex flex-col mt-8">
-            <label for="date" class="text-lg font-semibold leading-tight"
+            <label for="hostBy" class="text-lg font-semibold leading-tight"
+              >Who is the Host
+              <span class="text-red-500 font-bold">*</span>
+            </label>
+            <input
+              formControlName="hostBy"
+              id="hostBy"
+              required
+              placeholder="Pastor Choolwe"
+              aria-required="true"
+              name="hostBy"
+              class="
+                h-10
+                px-2
+                w-full
+                rounded
+                mt-2
+                text-gray-600
+                focus:outline-none focus:border focus:border-indigo-700
+                dark:focus:border-indigo-700
+                dark:border-gray-700
+                dark:bg-gray-800
+                dark:text-gray-400
+                border-gray-300 border
+                shadow
+              "
+              type="text"
+            />
+          </div>
+
+          <div class="flex flex-col mt-8">
+            <label for="meetingDate" class="text-lg font-semibold leading-tight"
               >When will the meeting hold
             </label>
             <input
-              id="date"
+              formControlName="meetingDate"
+              id="meetingDate"
               aria-required="true"
-              name="date"
+              name="meetingDate"
               class="
                 h-10
                 px-2
@@ -214,48 +222,16 @@
             />
           </div>
 
-          <!-- <div class="flex flex-col mt-5">
-              <label for="category" class="text-lg font-semibold fleading-tight"
-                >Tell Us who you are
-                <span class="text-red-500 font-bold">*</span>
-              </label>
-              <select
-                id="category"
-                required
-                aria-required="true"
-                name="category"
-                class="
-                  h-10
-                  px-2
-                  w-full
-                  rounded
-                  mt-2
-                  text-gray-600
-                  focus:outline-none focus:border focus:border-indigo-700
-                  dark:focus:border-indigo-700
-                  dark:border-gray-700
-                  dark:bg-gray-800
-                  dark:text-gray-400
-                  border-gray-300 border
-                  shadow
-                "
-              >
-                <option selected>Tell Us who you are</option>
-                <option value="GEC">I'm from GEC</option>
-                <option value="FT">I'm a First Timer</option>
-                <option value="V">I'm just Visiting</option>
-              </select>
-            </div> -->
-
           <div class="flex flex-col mt-5">
-            <label for="public" class="text-lg font-semibold fleading-tight"
+            <label for="publish" class="text-lg font-semibold fleading-tight"
               >Save or Publish</label
             >
             <select
-              id="public"
+              formControlName="publish"
+              id="publish"
               required
               aria-required="true"
-              name="public"
+              name="publish"
               class="
                 h-10
                 px-2
@@ -272,22 +248,23 @@
                 shadow
               "
             >
-              <option value="1">Publish</option>
-              <option select value="0">Save but dont Publish</option>
+              <option select value="true">Publish</option>
+              <option value="false">Save but dont Publish</option>
             </select>
           </div>
 
           <div class="flex flex-col mt-8">
             <label
-              for="embedVideoCode"
+              for="videoEmbedCode"
               class="text-lg font-semibold leading-tight"
               >Embedd Video Code
               <span class="text-red-500 font-bold">*</span>
             </label>
             <textarea
-              id="embedVideoCode"
+              formControlName="videoEmbedCode"
+              id="videoEmbedCode"
               aria-required="true"
-              name="embedVideoCode"
+              name="videoEmbedCode"
               class="
                 h-40
                 px-2
@@ -307,15 +284,17 @@
           </div>
 
           <div class="flex flex-col mt-8">
-            <label for="host" class="text-lg font-semibold leading-tight"
+            <label
+              for="chatEmbedCode"
+              class="text-lg font-semibold leading-tight"
               >Chat Feature Code
             </label>
             <input
-              id="host"
+              formControlName="chatEmbedCode"
+              id="chatEmbedCode"
               required
-              placeholder="Pastor Choolwe"
               aria-required="true"
-              name="host"
+              name="chatEmbedCode"
               class="
                 h-10
                 px-2

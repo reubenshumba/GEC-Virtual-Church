@@ -1,22 +1,62 @@
-<!--player code begin-->
-<div
-  id="svp_player3ifv542dmn6s"
-  style="width: 720px; height: 810px; position: relative"
-></div>
-<script
-  language="javascript"
-  type="text/javascript"
-  src="//play.streamingvideoprovider.com/js/dplayer.js"
-></script>
-<script language="javascript">
-  <!--
-  var vars = {clip_id:"3ifv542dmn6s",transparent:"true",pause:"1",repeat:"",bg_color:"#ffffff",fs_mode:"2",no_controls:"",start_img:"0",start_volume:"34",close_button:"",brand_new_window:"1",auto_hide:"1",stretch_video:"",player_align:"NONE",offset_x:"0",offset_y:"0",player_color_ratio:0.6,skinAlpha:"50",colorBase:"#250864",colorIcon:"#ffffff",colorHighlight:"#7f54f8",direct:"false",is_responsive:"true",viewers_limit:0,cc_position:"bottom",cc_positionOffset:70,cc_multiplier:0.03,cc_textColor:"#ffffff",cc_textOutlineColor:"#ffffff",cc_bkgColor:"#000000",cc_bkgAlpha:0.1,aspect_ratio:"16:9",play_button:"1",play_button_style:"pulsing",sleek_player:"1",floating_player:"none"};
-  var svp_player = new SVPDynamicPlayer("svp_player3ifv542dmn6s", "", "100%", "100%", {use_div:"svp_player3ifv542dmn6s",skin:"3"}, vars);
-  svp_player.execute();
-  //-->
-</script>
-<noscript
-  >Your browser does not support JavaScript! JavaScript is needed to display
-  this video player.</noscript
->
-<!--player code end-->
+<section class="bg-white {-- h-screen --}">
+  <div class="mx-auto flex lg:justify-center h-full flex-col lg:flex-row px-4">
+    <div
+      class="
+        w-full
+        lg:w-3/4
+        px-2
+        py-20
+        sm:py-40 sm:px-12
+        flex flex-col
+        justify-center
+        items-center
+        relative
+      "
+    >
+      <iframe
+        frameBorder="0"
+        scrolling="no"
+        id="chat_frame"
+        style="border: 1px solid #e5e5e5"
+        width="100%"
+        height="100%"
+        [src]="meetingURL | safe"
+      ></iframe>
+      <!-- Title -->
+      <div class="pt-8 leading-tight text-left font-bold justify-self-start">
+        <h2 class="text-2xl font-bold text-indigo-700">{{ title }}</h2>
+        <h4 class="text-md font-semibold text-indigo-800">{{ host }}</h4>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-1/4 flex justify-center bg-white dark:bg-gray-900">
+      <div
+        class="
+          w-full
+          sm:w-4/6
+          md:w-3/6
+          lg:w-2/3
+          text-gray-800
+          dark:text-gray-100
+          flex flex-col
+          justify-center
+          px-2
+          sm:px-0
+          py-16
+        "
+      >
+        <!-- Chat feature  -->
+        <iframe
+          frameBorder="0"
+          scrolling="no"
+          id="chat_frame"
+          src="https://chat.webvideocore.net/index.html?room=2odqc617vaas"
+          style="border: 1px solid #e5e5e5"
+          width="270"
+          height="405"
+        ></iframe>
+        <!-- Chat feature  -->
+      </div>
+    </div>
+  </div>
+</section>

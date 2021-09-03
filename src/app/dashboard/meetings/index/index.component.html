@@ -104,6 +104,7 @@
             </div>
           </div>
         </div>
+
         <div class="block relative">
           <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
             <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
@@ -136,6 +137,33 @@
           />
         </div>
       </div>
+
+      <div class="">
+        <button
+          type="submit"
+          [routerLink]="['/dashboard/meeting/add']"
+          routerLinkActive="router-link-active"
+          class="
+            focus:outline-none
+            w-full
+            sm:w-auto
+            bg-green-700
+            transition
+            duration-150
+            ease-in-out
+            hover:bg-greenw-600
+            rounded
+            text-white
+            px-8
+            py-3
+            text-sm
+            mt-6
+          "
+        >
+          Add Meeting
+        </button>
+      </div>
+
       <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
           <table class="min-w-full leading-normal">
@@ -319,7 +347,10 @@
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                   <button
                     type="submit"
-                    [routerLink]="['/dashboard/meeting/view/']"
+                    [routerLink]="[
+                      '/dashboard/meeting/view/',
+                      meeting.meetingID
+                    ]"
                     routerLinkActive="router-link-active"
                     class="
                       focus:outline-none
@@ -345,7 +376,10 @@
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                   <button
                     type="submit"
-                    [routerLink]="['/dashboard/meeting/edit/']"
+                    [routerLink]="[
+                      '/dashboard/meeting/edit/',
+                      meeting.meetingID
+                    ]"
                     routerLinkActive="router-link-active"
                     class="
                       focus:outline-none
@@ -369,7 +403,10 @@
                 </td>
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                   <button
-                    [routerLink]="['/dashboard/meeting/delete/']"
+                    [routerLink]="[
+                      '/dashboard/meeting/delete/',
+                      meeting.meetingID
+                    ]"
                     routerLinkActive="router-link-active"
                     type="submit"
                     class="
